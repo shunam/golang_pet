@@ -73,6 +73,7 @@ func (c *PetController) GetOne() {
 // @router /:id/uploadImage [post]
 func (c *PetController) UploadImage() {
   file, header, err := c.GetFile("image")
+
 	if file != nil {
     err := c.SaveToFile("image", "public/" + header.Filename)
     if err == nil {
