@@ -43,3 +43,7 @@ Running in prouction
 ```sh
 $ ./pet
 ```
+
+# Swagger
+
+After running the app, go to localhost:8080/swagger
