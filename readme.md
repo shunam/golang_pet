@@ -12,9 +12,34 @@ I use beego, because it's simple to use so I can be more productive.
 - controller. All controller will be here.
 - database. All migrations will be here.
 - models. All model will be here.
-- public. All JS/CSS/Image will be here.
+- public. All Image will be here.
 - routers. All routes will be here.
 - tests. All test files will be here.
 
 # Setup instructions
+```sh
+$ git clone git@bitbucket.org:shunam/pet.git
+$ cd pet
+$ dep ensure
+$ go get github.com/beego/bee
+```
+
 # Application deployments
+
+Make sure you are in folder pet.
+
+Run in development
+```sh
+$ bee run
+```
+
+Runing test
+```sh
+$ cd tests
+$ go test
+```
+
+Running in prouction
+```sh
+$ ./pet
+```
