@@ -40,10 +40,10 @@ func TestGetAll(t *testing.T) {
 }
 
 func TestPost(t *testing.T) {
-  var jsonStr = []byte(`{
-  	"name": "Hendrik",
-  	"age": 15
-  }`)
+	var jsonStr = []byte(`{
+		"name": "Hendrik",
+		"age": 15
+	}`)
 
 	r, _ := http.NewRequest("POST", "/v1/pet", bytes.NewBuffer(jsonStr))
 	w := httptest.NewRecorder()
@@ -59,10 +59,10 @@ func TestPost(t *testing.T) {
 }
 
 func TestPut(t *testing.T) {
-  var jsonStr = []byte(`{
-  	"name": "Kustanto",
-  	"age": 15
-  }`)
+	var jsonStr = []byte(`{
+		"name": "Kustanto",
+		"age": 15
+	}`)
 
 	r, _ := http.NewRequest("PUT", "/v1/pet/1", bytes.NewBuffer(jsonStr))
 	w := httptest.NewRecorder()

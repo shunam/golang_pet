@@ -26,17 +26,17 @@
 
 
 [[constraint]]
-  name = "github.com/astaxie/beego"
-  version = "1.12.0"
+	name = "github.com/astaxie/beego"
+	version = "1.12.0"
 
 [[constraint]]
-  name = "github.com/go-sql-driver/mysql"
-  version = "1.4.1"
+	name = "github.com/go-sql-driver/mysql"
+	version = "1.4.1"
 
 [[constraint]]
-  name = "github.com/smartystreets/goconvey"
-  version = "1.6.3"
+	name = "github.com/smartystreets/goconvey"
+	version = "1.6.3"
 
 [prune]
-  go-tests = true
-  unused-packages = true
+	go-tests = true
+	unused-packages = true

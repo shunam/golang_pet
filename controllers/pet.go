@@ -73,7 +73,7 @@ func (c *PetController) GetOne() {
 // @Failure 403 :id is empty
 // @router /:id/uploadImage [post]
 func (c *PetController) UploadImage() {
-  file, header, err := c.GetFile("image")
+	file, header, err := c.GetFile("image")
 	idStr := c.Ctx.Input.Param(":id")
 
 	if file != nil {
@@ -81,8 +81,8 @@ func (c *PetController) UploadImage() {
 		if _, err := os.Stat(path); os.IsNotExist(err) {
 			os.Mkdir(path, os.ModePerm)
 		}
-    err := c.SaveToFile("image", path + header.Filename)
-    if err == nil {
+		err := c.SaveToFile("image", path + header.Filename)
+		if err == nil {
 			id, _ := strconv.ParseInt(idStr, 0, 64)
 			v := models.Pet{Id: id}
 			if err := models.UpdatePhotoPetById(&v, header.Filename); err == nil {
@@ -90,12 +90,12 @@ func (c *PetController) UploadImage() {
 			} else {
 				c.Data["json"] = err.Error()
 			}
-    } else {
-	  	c.Data["json"] = err.Error()
-    }
-  } else {
-  	c.Data["json"] = err.Error()
-  }
+		} else {
+			c.Data["json"] = err.Error()
+		}
+	} else {
+		c.Data["json"] = err.Error()
+	}
 	c.ServeJSON()
 }
 
