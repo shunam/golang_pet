@@ -6,6 +6,7 @@ import (
 	"pet/models"
 	"strconv"
 	"strings"
+	"os"
 
 	"github.com/astaxie/beego"
 
@@ -73,11 +74,15 @@ func (c *PetController) GetOne() {
 // @router /:id/uploadImage [post]
 func (c *PetController) UploadImage() {
   file, header, err := c.GetFile("image")
+	idStr := c.Ctx.Input.Param(":id")
 
 	if file != nil {
-    err := c.SaveToFile("image", "public/" + header.Filename)
+		path := ("public/" + idStr + "/")
+		if _, err := os.Stat(path); os.IsNotExist(err) {
+			os.Mkdir(path, os.ModePerm)
+		}
+    err := c.SaveToFile("image", path + header.Filename)
     if err == nil {
-			idStr := c.Ctx.Input.Param(":id")
 			id, _ := strconv.ParseInt(idStr, 0, 64)
 			v := models.Pet{Id: id}
 			if err := models.UpdatePhotoPetById(&v, header.Filename); err == nil {
